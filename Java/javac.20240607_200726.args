@@ -1,0 +1,18 @@
+-d
+"C:\\Users\\Josiel\\Desktop\\Daniel\\Programação\\Faetec\\Ideal Fashion\\Ideal-Fashion\\IdealFashion\\build\\classes"
+-classpath
+"C:\\Users\\Josiel\\Desktop\\Daniel\\Programação\\Faetec\\Ideal Fashion\\Ideal-Fashion\\IdealFashion\\build\\classes;C:\\Program Files\\NetBeans-21\\netbeans\\java\\modules\\ext\\AbsoluteLayout.jar;C:\\Users\\Josiel\\Downloads\\mysql-connector-java-5.1.47\\mysql-connector-java-5.1.47\\mysql-connector-java-5.1.47.jar"
+-sourcepath
+"C:\\Users\\Josiel\\Desktop\\Daniel\\Programação\\Faetec\\Ideal Fashion\\Ideal-Fashion\\IdealFashion\\src"
+-target
+19
+-encoding
+UTF-8
+-g
+-processorpath
+"C:\\Program Files\\NetBeans-21\\netbeans\\java\\modules\\ext\\AbsoluteLayout.jar;C:\\home\\Aluno.Tarde\\Documentos\\DriverConexao\\mysql-connector-java-5.1.47.jar;C:\\Users\\Josiel\\Downloads\\mysql-connector-java-5.1.47\\mysql-connector-java-5.1.47\\mysql-connector-java-5.1.47.jar;C:\\Users\\Josiel\\Desktop\\Daniel\\Programação\\Faetec\\Ideal Fashion\\Ideal-Fashion\\IdealFashion\\build\\empty"
+-s
+"C:\\Users\\Josiel\\Desktop\\Daniel\\Programação\\Faetec\\Ideal Fashion\\Ideal-Fashion\\IdealFashion\\build\\generated-sources\\ap-source-output"
+-source
+19
+"C:\\Users\\Josiel\\Desktop\\Daniel\\Programação\\Faetec\\Ideal Fashion\\Ideal-Fashion\\IdealFashion\\src\\Atendente\\WorkspaceAtendente.java"

@@ -1,0 +1,482 @@
+package View;
+
+import Utils.AnimalModel;
+import Utils.ClienteModel;
+import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
+import Utils.HttpConnection;
+import com.formdev.flatlaf.FlatLaf;
+import com.formdev.flatlaf.themes.FlatMacDarkLaf;
+import java.text.DecimalFormat;
+import java.text.DecimalFormatSymbols;
+import java.util.List;
+import java.util.Locale;
+import java.util.Timer;
+import java.util.TimerTask;
+import javax.swing.JDesktopPane;
+import javax.swing.RowFilter;
+import javax.swing.table.TableRowSorter;
+
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JInternalFrame.java to edit this template
+ */
+
+/**
+ *
+ * @author Oruam
+ */
+public class ProcurarAnimal extends javax.swing.JInternalFrame {
+
+    /**
+     * Creates new form TelaFuncionarios
+     */
+    private void listarAnimais() {
+        // Instância a classe de conexão
+        HttpConnection httpConnection = new HttpConnection();
+
+        // Verifica o estado do clienteDTO
+        List<AnimalModel> animais;
+
+        if (this.clienteDTO != null) {
+            // Caso tenha um cliente selecionado, lista os animais vinculados ao cliente
+            animais = httpConnection.listarAnimaisPorCliente(this.clienteDTO.getIdCliente());
+        } else {
+            // Caso não tenha cliente (para adoção), lista apenas os animais sem cliente
+            animais = httpConnection.listarAnimaisAdocao();
+        }
+
+        // Obtem o modelo da tabela
+        DefaultTableModel Tabela = (DefaultTableModel) jTAnimais.getModel();
+
+        // Limpa a tabela antes de adicionar os novos dados
+        Tabela.setRowCount(0);
+
+        // Itera sobre a lista de animais e adiciona os dados na tabela
+        for (AnimalModel animal : animais) {
+            // Transforma "_" em espaço e coloca tudo minúsculo
+            String especie = animal.getEspecie().toLowerCase();
+            String raca = animal.getRaca().toLowerCase().replace("_", " ");
+            String sexo = animal.getSexo().toLowerCase();
+            String idade = animal.getIdade().toLowerCase().replace("_", " ");
+            String cor = animal.getCor().toLowerCase();
+
+            // Coloca a inicial maiúscula
+            especie = Character.toUpperCase(especie.charAt(0)) + especie.substring(1);
+            raca = Character.toUpperCase(raca.charAt(0)) + raca.substring(1);
+            sexo = Character.toUpperCase(sexo.charAt(0)) + sexo.substring(1);   
+            idade = Character.toUpperCase(idade.charAt(0)) + idade.substring(1);   
+            cor = Character.toUpperCase(cor.charAt(0)) + cor.substring(1);   
+
+            // Configurações de formato para usar a vírgula como separador decimal
+            DecimalFormatSymbols symbols = new DecimalFormatSymbols(Locale.getDefault());
+            symbols.setDecimalSeparator(',');
+
+            // Formato com três casas decimais
+            DecimalFormat df = new DecimalFormat("#,##0.000", symbols);
+
+            // Exibindo o valor formatado
+            String pesoFormatado = df.format(animal.getPeso()) + "kg";
+            
+            String nomeCliente;
+            // Verifica se o cliente é nulo antes de acessar o nome
+            if (animal.getCliente() != null && animal.getCliente().getNome() != null) {
+                nomeCliente = animal.getCliente().getNome();
+            } else {
+                nomeCliente = "NÃO VINCULADO";
+            }
+            
+            Object[] dados = {
+                nomeCliente,
+                animal.getNome(),
+                especie,
+                raca,
+                sexo,
+                idade,
+                cor,
+                pesoFormatado,
+                animal.getIdAnimal()
+            };
+            Tabela.addRow(dados);
+        }
+    }
+    
+    private ClienteModel clienteDTO;
+    private AnimalModel animalDTO;
+    private final JDesktopPane dashboard;
+    private final String emailFuncionario;
+    private final String funcao;
+
+    public ProcurarAnimal(ClienteModel clienteDTO, AnimalModel animalDTO, JDesktopPane dashboard, String emailFuncionario, String funcao) {
+        initComponents();
+        if (clienteDTO != null){
+            this.clienteDTO = clienteDTO;
+        }
+        
+        this.animalDTO = animalDTO;
+        this.dashboard = dashboard;
+        this.emailFuncionario = emailFuncionario;
+        this.funcao = funcao;
+
+        FlatLaf.registerCustomDefaultsSource("tableview");
+        FlatMacDarkLaf.setup();
+
+        Timer timer = new Timer();
+        timer.scheduleAtFixedRate(new TimerTask() {
+            @Override
+            public void run() {
+                listarAnimais();
+            }
+        }, 0, 5000);
+    }
+
+    /**
+     * This method is called from within the constructor to initialize the form.
+     * WARNING: Do NOT modify this code. The content of this method is always
+     * regenerated by the Form Editor.
+     */
+    @SuppressWarnings("unchecked")
+    // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
+    private void initComponents() {
+
+        jPanel2 = new javax.swing.JPanel();
+        jTCorrigirField = new javax.swing.JTextField();
+        jPanel3 = new javax.swing.JPanel();
+        jTPesquisar = new javax.swing.JTextField();
+        jLPesquisar = new javax.swing.JLabel();
+        jPanel1 = new javax.swing.JPanel();
+        jBSelecionar = new javax.swing.JButton();
+        jPanel4 = new javax.swing.JPanel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jTAnimais = new javax.swing.JTable();
+
+        setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        setClosable(true);
+        setTitle("Procurar Animal");
+        setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        setInheritsPopupMenu(true);
+        setName("Tela Funcionário"); // NOI18N
+        addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                formKeyReleased(evt);
+            }
+        });
+
+        jPanel2.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel2.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                jPanel2FocusGained(evt);
+            }
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                jPanel2FocusLost(evt);
+            }
+        });
+        jPanel2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                jPanel2MouseEntered(evt);
+            }
+            public void mouseReleased(java.awt.event.MouseEvent evt) {
+                jPanel2MouseReleased(evt);
+            }
+        });
+        jPanel2.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                jPanel2KeyReleased(evt);
+            }
+        });
+        jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jTCorrigirField.setBackground(new java.awt.Color(255, 255, 255));
+        jTCorrigirField.setForeground(new java.awt.Color(255, 255, 255));
+        jPanel2.add(jTCorrigirField, new org.netbeans.lib.awtextra.AbsoluteConstraints(-68, 0, -1, 20));
+
+        jPanel3.setBackground(new java.awt.Color(24, 24, 24));
+        jPanel3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jTPesquisar.setBackground(new java.awt.Color(24, 24, 24));
+        jTPesquisar.setForeground(new java.awt.Color(204, 204, 204));
+        jTPesquisar.setText("Pesquisar");
+        jTPesquisar.setBorder(null);
+        jTPesquisar.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                jTPesquisarFocusGained(evt);
+            }
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                jTPesquisarFocusLost(evt);
+            }
+        });
+        jTPesquisar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jTPesquisarMouseClicked(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                jTPesquisarMouseExited(evt);
+            }
+        });
+        jTPesquisar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTPesquisarActionPerformed(evt);
+            }
+        });
+        jTPesquisar.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                jTPesquisarKeyReleased(evt);
+            }
+        });
+        jPanel3.add(jTPesquisar, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 10, 230, 20));
+
+        jLPesquisar.setBackground(new java.awt.Color(40, 40, 40));
+        jLPesquisar.setForeground(new java.awt.Color(204, 204, 204));
+        jLPesquisar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/PesquisarIcon.png"))); // NOI18N
+        jPanel3.add(jLPesquisar, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 5, 30, 30));
+
+        jPanel2.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 270, 40));
+
+        jPanel1.setBackground(new java.awt.Color(238, 238, 238));
+        jPanel1.setForeground(new java.awt.Color(233, 233, 233));
+
+        jBSelecionar.setBackground(new java.awt.Color(24, 24, 24));
+        jBSelecionar.setForeground(new java.awt.Color(204, 204, 204));
+        jBSelecionar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/SelecionarIcon.png"))); // NOI18N
+        jBSelecionar.setText("Selecionar");
+        jBSelecionar.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(59, 59, 59)));
+        jBSelecionar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jBSelecionar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                jBSelecionarMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                jBSelecionarMouseExited(evt);
+            }
+        });
+        jBSelecionar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBSelecionarActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addContainerGap(591, Short.MAX_VALUE)
+                .addComponent(jBSelecionar, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(15, 15, 15))
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(14, 14, 14)
+                .addComponent(jBSelecionar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(16, 16, 16))
+        );
+
+        jPanel2.add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 720, 60));
+
+        jPanel4.setBackground(new java.awt.Color(238, 238, 238));
+        jPanel4.setForeground(new java.awt.Color(233, 233, 233));
+
+        jTAnimais.setShowHorizontalLines(true);
+        jTAnimais.setShowVerticalLines(false);
+        jTAnimais.setGridColor(new java.awt.Color(51,51,51));
+        jTAnimais.setBackground(new java.awt.Color(238, 238, 238));
+        jTAnimais.setForeground(new java.awt.Color(51,51,51));
+        jTAnimais.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "Cliente", "Animal", "Espécie", "Raça", "Sexo", "Idade", "Cor", "Peso", "Id"
+            }
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false, false, false, false, false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        jTAnimais.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jTAnimais.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jTAnimaisMouseClicked(evt);
+            }
+        });
+        jScrollPane1.setViewportView(jTAnimais);
+
+        javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
+        jPanel4.setLayout(jPanel4Layout);
+        jPanel4Layout.setHorizontalGroup(
+            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 720, Short.MAX_VALUE)
+            .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel4Layout.createSequentialGroup()
+                    .addGap(0, 0, Short.MAX_VALUE)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 700, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(0, 0, Short.MAX_VALUE)))
+        );
+        jPanel4Layout.setVerticalGroup(
+            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 490, Short.MAX_VALUE)
+            .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel4Layout.createSequentialGroup()
+                    .addGap(0, 0, Short.MAX_VALUE)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 470, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(0, 0, Short.MAX_VALUE)))
+        );
+
+        jPanel2.add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 70, -1, 490));
+
+        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
+        getContentPane().setLayout(layout);
+        layout.setHorizontalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+        );
+        layout.setVerticalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
+
+        pack();
+    }// </editor-fold>//GEN-END:initComponents
+
+    private void JTnomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JTnomeActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_JTnomeActionPerformed
+
+    private void JCgeneroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JCgeneroActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_JCgeneroActionPerformed
+
+    private void JCtipoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JCtipoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_JCtipoActionPerformed
+
+    private void formKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_formKeyReleased
+        // TODO add your handling code here:
+  
+    }//GEN-LAST:event_formKeyReleased
+
+    private void jPanel2KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jPanel2KeyReleased
+        // TODO add your handling code here:
+
+    }//GEN-LAST:event_jPanel2KeyReleased
+
+    private void jPanel2FocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jPanel2FocusGained
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jPanel2FocusGained
+
+    private void jPanel2MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel2MouseEntered
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jPanel2MouseEntered
+
+    private void jPanel2MouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel2MouseReleased
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jPanel2MouseReleased
+
+    private void jTPesquisarMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTPesquisarMouseExited
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTPesquisarMouseExited
+
+    private void jTPesquisarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTPesquisarMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTPesquisarMouseClicked
+
+    private void jTPesquisarFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTPesquisarFocusLost
+        // TODO add your handling code here:
+        if(jTPesquisar.getText().equals("")){
+
+            jTPesquisar.setText("Pesquisar");
+        }
+    }//GEN-LAST:event_jTPesquisarFocusLost
+
+    private void jTPesquisarFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTPesquisarFocusGained
+        // TODO add your handling code here:
+        if(jTPesquisar.getText().equals("Pesquisar")){
+            jTPesquisar.setText("");
+        }
+    }//GEN-LAST:event_jTPesquisarFocusGained
+
+    private void jPanel2FocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jPanel2FocusLost
+        // TODO add your handling code here:
+        
+    }//GEN-LAST:event_jPanel2FocusLost
+
+    private void jTPesquisarKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTPesquisarKeyReleased
+        // TODO add your handling code here:
+        DefaultTableModel modelo = (DefaultTableModel) jTAnimais.getModel();
+        TableRowSorter<DefaultTableModel> obj=new TableRowSorter<>(modelo);
+        jTAnimais.setRowSorter(obj);
+        obj.setRowFilter(RowFilter.regexFilter(jTPesquisar.getText()));
+    }//GEN-LAST:event_jTPesquisarKeyReleased
+
+    private void jTPesquisarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTPesquisarActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTPesquisarActionPerformed
+
+    private void jBSelecionarMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jBSelecionarMouseEntered
+        // TODO add your handling code here:
+        jBSelecionar.setBackground(new java.awt.Color(51,51,51));
+    }//GEN-LAST:event_jBSelecionarMouseEntered
+
+    private void jBSelecionarMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jBSelecionarMouseExited
+        // TODO add your handling code here:
+        jBSelecionar.setBackground(new java.awt.Color(24,24,24));
+    }//GEN-LAST:event_jBSelecionarMouseExited
+
+    private void jBSelecionarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBSelecionarActionPerformed
+        int[] selectedRows = jTAnimais.getSelectedRows();
+
+        if (selectedRows.length == 0) {
+            JOptionPane.showMessageDialog(null, "ERRO: selecione um Animal.");
+        } else if (selectedRows.length > 1) {
+            JOptionPane.showMessageDialog(null, "ERRO: selecione somente um Animal.");
+        } else {
+            HttpConnection httpConnection = new HttpConnection();
+            AnimalModel animalDTO = httpConnection.buscarAnimal(Integer.parseInt(jTAnimais.getValueAt(selectedRows[0], 8).toString()));
+
+            if (animalDTO != null) {
+                this.animalDTO = animalDTO;
+
+                if (animalDTO.getFotoAnimal() == null) {
+                    int resposta = JOptionPane.showConfirmDialog(null, 
+                        "Este animal não possui uma foto. Deseja adicionar uma agora?", 
+                        "Foto Ausente", 
+                        JOptionPane.YES_NO_OPTION);
+
+                    if (resposta == JOptionPane.YES_OPTION) {
+                        VisualizarAnimal visualizarAnimal = new VisualizarAnimal(dashboard, animalDTO.getIdAnimal(), this.emailFuncionario, this.funcao);
+                        dashboard.add(visualizarAnimal);
+                        visualizarAnimal.setVisible(true);
+                        visualizarAnimal.setBounds(400, 40, 910, 624);
+                    }
+                }
+                dispose();
+            }
+        }
+    }//GEN-LAST:event_jBSelecionarActionPerformed
+
+    private void jTAnimaisMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTAnimaisMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTAnimaisMouseClicked
+
+    public AnimalModel getAnimalSelecionado() {
+        return this.animalDTO;
+    }
+
+    // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton jBSelecionar;
+    private javax.swing.JLabel jLPesquisar;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
+    private javax.swing.JPanel jPanel3;
+    private javax.swing.JPanel jPanel4;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTable jTAnimais;
+    private javax.swing.JTextField jTCorrigirField;
+    private javax.swing.JTextField jTPesquisar;
+    // End of variables declaration//GEN-END:variables
+}
