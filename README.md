@@ -45,7 +45,7 @@ O **PetTopia - Sistema Desktop** é uma aplicação desenvolvida para auxiliar O
 ## **Como Usar**
 
 ### **Login Inicial**
-1. Use as credenciais fornecidas pelo administrador para acessar o sistema.  
+1. Use as credenciais fornecidas pelo administrador para acessar o sistema.
 2. O administrador inicial deve ser cadastrado manualmente.
 
 ### **Cadastro de Clientes e Animais**
@@ -56,7 +56,6 @@ O **PetTopia - Sistema Desktop** é uma aplicação desenvolvida para auxiliar O
 
 ---
 
-
 ## **Tecnologias Utilizadas**
 - **NetBeans 19**: Ambiente de desenvolvimento integrado (IDE) utilizado.
 - **JDK 23**: Versão do Java Development Kit.
@@ -64,4 +63,30 @@ O **PetTopia - Sistema Desktop** é uma aplicação desenvolvida para auxiliar O
 - **Spring Boot (Servidor)**: Para o backend da aplicação.
 - **MySQL**: Banco de dados utilizado para armazenar informações.
 
-> **Link para o repositório do servidor**: [PetTopia - Servidor Spring Boot][([https://github.com/seu-repositorio-servidor](https://github.com/GabsFns/pettopia-ongveterinanaria-server))](https://github.com/GabsFns/pettopia-ongveterinanaria-server)
+<div align="left">
+    <img src="https://skillicons.dev/icons?i=java" title="Java"/>
+    <img src="https://skillicons.dev/icons?i=spring" title="Spring Framework"/>
+    <img src="https://skillicons.dev/icons?i=postman" title="Postman"/>
+    <img src="https://skillicons.dev/icons?i=mysql" title="MySQL"/>
+    <img src="https://skillicons.dev/icons?i=idea" title="IntelliJ IDEA"/>
+    <img src="https://skillicons.dev/icons?i=git" title="Git"/>
+</div>
+
+> **Link para o repositório do servidor**: [PetTopia - Servidor Spring Boot](https://github.com/GabsFns/pettopia-ongveterinanaria-server)
+
+## **Algumas fotos do sistema**
+### Tela de login  
+![Tela de Login](https://github.com/user-attachments/assets/665fbe2c-5f6d-4c55-ad3a-e4e987f7ebbe)
+
+### Dashboard  
+![Dashboard](https://github.com/user-attachments/assets/ecfb6887-db11-4376-90a9-ba9ebd3ed66c)
+
+### Cadastrar Cliente  
+![Cadastrar Cliente](https://github.com/user-attachments/assets/d022c87f-8d94-425d-a256-6a416fb1129d)
+
+### Registro de Clientes  
+![Registro de Clientes](https://github.com/user-attachments/assets/825042bc-c979-43f7-bf72-6031eef10c3a)
+
+## **Documentação**
+Para obter mais detalhes e orientações completas sobre o sistema, acesse o documento completo:
+[Documentação](https://drive.google.com/open?id=1N5_uDoOu_VjvPYfos-pTdC11uffNZ52q&usp=drive_copy)
