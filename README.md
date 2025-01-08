@@ -58,13 +58,10 @@ O **PetTopia - Sistema Desktop** é uma aplicação desenvolvida para auxiliar O
 
 
 ## **Tecnologias Utilizadas**
-<br/>
-<div align="center">
-    <img src="https://skillicons.dev/icons?i=java" title="Java"/>
-    <img src="https://skillicons.dev/icons?i=spring" title="Spring Framework"/>
-    <img src="https://skillicons.dev/icons?i=postman" title="Postman"/>
-    <img src = "https://skillicons.dev/icons?i=mysql" title="MySQL"/>
-    <img src="https://skillicons.dev/icons?i=idea" title="IntelliJ IDEA"/>
-</div>
+- **NetBeans 19**: Ambiente de desenvolvimento integrado (IDE) utilizado.
+- **JDK 23**: Versão do Java Development Kit.
+- **Java Swing**: Biblioteca gráfica utilizada para o desenvolvimento da interface.
+- **Spring Boot (Servidor)**: Para o backend da aplicação.
+- **MySQL**: Banco de dados utilizado para armazenar informações.
 
 > **Link para o repositório do servidor**: [PetTopia - Servidor Spring Boot][([https://github.com/seu-repositorio-servidor](https://github.com/GabsFns/pettopia-ongveterinanaria-server))](https://github.com/GabsFns/pettopia-ongveterinanaria-server)
