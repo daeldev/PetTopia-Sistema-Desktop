@@ -64,12 +64,13 @@ O **PetTopia - Sistema Desktop** é uma aplicação desenvolvida para auxiliar O
 - **MySQL**: Banco de dados utilizado para armazenar informações.
 
 <div align="left">
-    <img src="https://skillicons.dev/icons?i=java" title="Java"/>
-    <img src="https://skillicons.dev/icons?i=spring" title="Spring Framework"/>
-    <img src="https://skillicons.dev/icons?i=postman" title="Postman"/>
-    <img src="https://skillicons.dev/icons?i=mysql" title="MySQL"/>
-    <img src="https://skillicons.dev/icons?i=idea" title="IntelliJ IDEA"/>
-    <img src="https://skillicons.dev/icons?i=git" title="Git"/>
+    <img src="https://skillicons.dev/icons?i=java" title="Java" width="50"/>
+    <img src="https://skillicons.dev/icons?i=spring" title="Spring Framework" width="50"/>
+    <img src="https://skillicons.dev/icons?i=postman" title="Postman" width="50"/>
+    <img src="https://skillicons.dev/icons?i=mysql" title="MySQL" width="50"/>
+    <img src="https://github.com/user-attachments/assets/d252c929-411f-4b84-87ee-9ffdda5e6386" title="NetBeans" width="55"/>
+    <img src="https://skillicons.dev/icons?i=idea" title="IntelliJ IDEA" width="50"/>
+    <img src="https://skillicons.dev/icons?i=git" title="Git" width="50"/>
 </div>
 
 > **Link para o repositório do servidor**: [PetTopia - Servidor Spring Boot](https://github.com/GabsFns/pettopia-ongveterinanaria-server)
