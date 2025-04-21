@@ -66,3 +66,9 @@ Durante o uso, utilize as seguintes credenciais padrão:
 ## **Documentação**
 Para obter mais detalhes e orientações completas sobre o sistema, acesse o documento completo:
 [Documentação](https://github.com/daeldev/PetTopia-Sistema-Desktop/blob/main/Documenta%C3%A7%C3%A3o/PetTopia%20Documenta%C3%A7%C3%A3o.pdf)
+
+### 👨‍💻 Desenvolvedores
+
+- **daeldev**
+
+---
