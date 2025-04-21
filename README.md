@@ -1,64 +1,41 @@
 # **PetTopia - Sistema Desktop**
 
 ## **Descrição do Projeto**
-O **PetTopia - Sistema Desktop** é uma aplicação desenvolvida para auxiliar ONGs no gerenciamento de animais e pedidos. Voltada para uso exclusivo de administradores e funcionários, a aplicação permite cadastrar e gerenciar informações de clientes, animais e pedidos, garantindo uma gestão eficiente das operações internas.
-
----
+O **PetTopia - Sistema Desktop** é uma aplicação desenvolvida para auxiliar ONGs no gerenciamento de animais e pedidos. Destinada exclusivamente a administradores e funcionários, a aplicação permite cadastrar e gerenciar informações de clientes, animais e pedidos, garantindo uma gestão eficiente das operações internas.
 
 ## **Funcionalidades**
 
-### **Ações Disponíveis**
-- Efetuar Login
-- Efetuar Cadastro
-- Cadastrar Animal
-- Gerenciar Cadastros
-- Solicitar Pedido
-- Concluir Pedidos
-- Gerenciar Pedidos
-- Gerar Relatórios
-
-### **Atores e Suas Ações**
-#### **Administrador**
-- **Efetuar Login**: Inicia uma sessão com credenciais cadastradas.
-- **Efetuar Cadastro**: Registra novos funcionários e animais. O primeiro administrador deve ser cadastrado para habilitar o sistema.
-- **Gerenciar Cadastros**: Cria, edita ou exclui registros de clientes, funcionários e animais.
-- **Gerenciar Pedidos**: Revisar, aceitar ou negar solicitações de adoção, doação ou denúncias, além de alterar o status de pedidos.
-- **Gerar Relatórios**: Gera relatórios mensais e gerais sobre:
-  - Funcionários
-  - Clientes
-  - Animais
-  - Pedidos (adoções, doações e denúncias)
-
-#### **Funcionário**
-- **Efetuar Login**: Acessa o sistema com credenciais exclusivas.
-- **Efetuar Cadastro**: Registra novos clientes e animais, especialmente durante atendimentos presenciais.
-- **Cadastrar Animal**: Registra informações de animais resgatados ou vinculados a clientes, criando um banco de dados completo.
-- **Gerenciar Cadastros**: Atualiza ou exclui dados de clientes e animais.
-- **Solicitar Pedido**: Realiza pedidos de adoção, doação ou denúncias feitos pelos clientes.
-- **Concluir Pedidos**: Finaliza processos de adoção e doação presencialmente.
-- **Gerenciar Pedidos**: Edita ou cancela denúncias e organiza o andamento de adoções e doações.
-
+| Funcionalidade         | Administrador | Funcionário |
+|------------------------|:-------------:|:-----------:|
+| Efetuar Login          | ✅            | ✅          |
+| Efetuar Cadastro       | ✅ (funcionário/animal) | ✅ (cliente/animal) |
+| Cadastrar Animal       | ✅            | ✅          |
+| Gerenciar Cadastros    | ✅            | ✅ (clientes/animais) |
+| Solicitar Pedido       | ❌            | ✅          |
+| Concluir Pedidos       | ❌            | ✅          |
+| Gerenciar Pedidos      | ✅            | ✅          |
+| Gerar Relatórios       | ✅            | ❌          |
 > **Nota:** Todas as ações relacionadas a clientes no sistema desktop, como cadastros e solicitações, são realizadas exclusivamente pelos funcionários.
 
----
+## **Instalação**
+Para testar o sistema localmente, baixe o instalador do PetTopia Desktop:
 
-## **Como Usar**
+🔗 [Clique aqui para baixar o instalador (.exe)](https://github.com/daeldev/PetTopia-Sistema-Desktop/raw/main/PetTopia.exe)
 
-### **Login Inicial**
-1. Use as credenciais fornecidas pelo administrador para acessar o sistema.
-2. O administrador inicial deve ser cadastrado manualmente.
+Após o download, execute o instalador normalmente no seu computador.
+Durante o uso, utilize as seguintes credenciais padrão:
 
-### **Cadastro de Clientes e Animais**
-- Os funcionários são responsáveis por registrar clientes e animais durante atendimentos presenciais.
+### 🔐 Credenciais de Acesso Padrão
+- **Email:** `admin@gmail.com`
+- **Senha:** `admin`
 
-### **Gestão de Pedidos e Relatórios**
-- Administradores e funcionários gerenciam todas as solicitações e relatórios por meio do sistema.
+📘 Antes de iniciar, certifique-se de que o backend está em execução, seguindo as instruções disponíveis no README do repositório:
 
----
+🔗[Clique aqui para ir até o reposótrio](https://github.com/GabsFns/pettopia-ongveterinanaria-server)
 
 ## **Tecnologias Utilizadas**
 - **NetBeans 19**: Ambiente de desenvolvimento integrado (IDE) utilizado.
-- **JDK 23**: Versão do Java Development Kit.
+- **JDK 17**: Versão do Java Development Kit.
 - **Java Swing**: Biblioteca gráfica utilizada para o desenvolvimento da interface.
 - **Spring Boot (Servidor)**: Para o backend da aplicação.
 - **MySQL**: Banco de dados utilizado para armazenar informações.
@@ -72,8 +49,6 @@ O **PetTopia - Sistema Desktop** é uma aplicação desenvolvida para auxiliar O
     <img src="https://skillicons.dev/icons?i=idea" title="IntelliJ IDEA" width="50"/>
     <img src="https://skillicons.dev/icons?i=git" title="Git" width="50"/>
 </div>
-
-> **Link para o repositório do servidor**: [PetTopia - Servidor Spring Boot](https://github.com/GabsFns/pettopia-ongveterinanaria-server)
 
 ## **Algumas fotos do sistema**
 ### Tela de login  
