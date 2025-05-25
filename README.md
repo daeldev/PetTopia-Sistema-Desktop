@@ -33,22 +33,37 @@ Durante o uso, utilize as seguintes credenciais padrão:
 
 🔗[Clique aqui para ir até o reposótrio](https://github.com/GabsFns/pettopia-ongveterinanaria-server)
 
-## **Tecnologias Utilizadas**
+### 🛠 &nbsp;**Tecnologias Utilizadas**
 - **NetBeans 19**: Ambiente de desenvolvimento integrado (IDE) utilizado.
 - **JDK 17**: Versão do Java Development Kit.
-- **Java Swing**: Biblioteca gráfica utilizada para o desenvolvimento da interface.
-- **Spring Boot (Servidor)**: Para o backend da aplicação.
-- **MySQL**: Banco de dados utilizado para armazenar informações.
+- **Java Swing**: Biblioteca gráfica utilizada para o desenvolvimento da interface gráfica.
+- **Spring Boot**: Framework usado para criação da API REST.
+- **Spring Security + JWT**: Autenticação e autorização.
+- **Spring Data JPA + Hibernate**: Persistência de dados com ORM.
+- **XChart & JFreeChart**: Bibliotecas para geração de gráficos.
+- **iText**: Biblioteca usada para geração de relatórios em PDF.
+- **Barcode4J**: Geração de código de barras.
+- **MySQL**: Banco de dados relacional.
+- **Swagger / OpenAPI**: Documentação interativa da API.
+- **Apache Maven**: Gerenciador de dependências e build.
+- **Docker**: Contêinerização do backend e banco de dados.
+- **Postman**: Testes de API.
+- **UML**: Modelagem de sistemas com diagramas.
 
-<div align="left">
-    <img src="https://skillicons.dev/icons?i=java" title="Java" width="50"/>
-    <img src="https://skillicons.dev/icons?i=spring" title="Spring Framework" width="50"/>
-    <img src="https://skillicons.dev/icons?i=postman" title="Postman" width="50"/>
-    <img src="https://skillicons.dev/icons?i=mysql" title="MySQL" width="50"/>
-    <img src="https://github.com/user-attachments/assets/d252c929-411f-4b84-87ee-9ffdda5e6386" title="NetBeans" width="55"/>
-    <img src="https://skillicons.dev/icons?i=idea" title="IntelliJ IDEA" width="50"/>
-    <img src="https://skillicons.dev/icons?i=git" title="Git" width="50"/>
-</div>
+<p height="">
+  <img src="https://img.shields.io/badge/Java-ED8B00?style=flat&logo=openjdk&logoColor=white" height=30, title="Java"/>
+  <img src="https://img.shields.io/badge/Spring-6DB33F.svg?style=for-the-badge&logo=Spring&logoColor=white" height=30, title="Spring Framework"/>
+  <img src="https://img.shields.io/badge/Hibernate-59666C.svg?style=for-the-badge&logo=Hibernate&logoColor=white" height=30, title="Hibernate"/>
+  <img src="https://img.shields.io/badge/GitHub-181717.svg?style=for-the-badge&logo=GitHub&logoColor=white" height=30, , title="GitHub"/>
+  <img src="https://img.shields.io/badge/Git-F05032.svg?style=for-the-badge&logo=Git&logoColor=white" height=30, title="Git"/>
+  <img src="https://img.shields.io/badge/Docker-2496ED.svg?style=for-the-badge&logo=Docker&logoColor=white" height=30, title="Docker"/>
+  <img src="https://img.shields.io/badge/Swagger-85EA2D.svg?style=for-the-badge&logo=Swagger&logoColor=black" height=30, title="Swagger"/>
+  <img src="https://img.shields.io/badge/Apache%20Maven-C71A36.svg?style=for-the-badge&logo=Apache-Maven&logoColor=white" height=30, title="Apache Maven"/>
+  <img src="https://img.shields.io/badge/Postman-FF6C37.svg?style=for-the-badge&logo=Postman&logoColor=white" height=30, title="Postman"/>
+  <img src="https://img.shields.io/badge/UML-FABD14.svg?style=for-the-badge&logo=UML&logoColor=black" height=30, title="UML"/>
+  <img src="https://img.shields.io/badge/IntelliJ%20IDEA-000000.svg?style=for-the-badge&logo=IntelliJ-IDEA&logoColor=white" height=30, title="IntelliJ IDE"/>
+  <img src="https://img.shields.io/badge/Apache%20NetBeans%20IDE-1B6AC6.svg?style=for-the-badge&logo=Apache-NetBeans-IDE&logoColor=white" height=30, title="Apache NetBeans IDE"/>
+</p>
 
 ## **Algumas fotos do sistema**
 ### Tela de login  
